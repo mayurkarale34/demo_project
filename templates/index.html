@@ -3,9 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bootstrap Registration Form</title>
+    <!-- Include Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- Include Select2 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <!-- Include jQuery (required for Select2) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Bootstrap 3 JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- Include Select2 JavaScript -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <style>
+        .background{
+            background-image:url('background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
 </head>
-<body>
-    <h1 style="color: blueviolet;">Welcome to Flask</h1>
+<body class="background">
+    <!-- Registration Form:
+        1. First Name
+        2. Last Name
+        3. City
+        4. Blood Group
+        5. Gender
+        6. Hobbies
+    -->
+    <div class="container col-md-6 col-md-offset-3" style="background-color: rgba(227, 187, 139, 0.491);margin-top: 10px;margin-bottom: 10px;">
+        <h1 class="text-center">Registration Form</h1>
+        
+        <form action="/add_user" method="POST">
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name">
+            </div>
+
+            <div class="form-group">
+                <label for="city_name">City</label>
+                <select class="form-control select2" name="city_name" id="city_name">
+                    <option value="">Please Select City</option>
+                    <option value="Mumbai" >Mumbai</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Nashik">Nashik</option>
+                    <option value="Satara">Satara</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="blood_group">Blood Group</label>
+                <select class="form-control select2" name="blood_group" id="blood_group">
+                    <option value="">Please Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-4 col-md-offset-4">
+                <button type="submit" id="submit_button" class="form-control btn btn-success">Register</button>
+            </div>
+           
+        </form>
+    </div>
+
+    <script>
+        $('.select2').select2();
+
+        var checked_hobbies = 0;        
+        function validate(field){
+            
+            var checkbox = document.getElementById(field)
+            
+           if(checkbox.checked == true){
+            
+                checked_hobbies +=1;
+           }
+           else{
+            checked_hobbies -=1;
+           }
+        }
+        
+        $('#submit_button').click(function (e){
+            var f_name = $('#first_name').val();
+            var l_name = $('#last_name').val();
+            var city_name = $('#city_name').val();
+            var blood_group = $('#blood_group').val();
+            var ele = document.getElementsByName('gender');
+            console.log(ele)
+            
+            if(f_name == ''){
+                alert("Please provide first name");
+                return false;
+            }
+            else if(l_name == ''){
+                alert("Please provide Last name")
+                return false;
+            }
+            else if(city_name == ''){
+                alert("Please Select City")
+                return false;
+            }
+            else if(blood_group == ''){
+                alert("Please Select Blood Group")
+                return false;
+            }
+            else if(ele[0].checked == false && ele[1].checked == false){
+                alert("Please select Gender");
+                return false;
+            }
+            else if(checked_hobbies < 2 ){
+                alert("Please check at least one hobby")
+                return false;
+            }
+
+           if(confirm("Are you sure want to submit?")){
+            alert("Form Submitted successfully");
+           }
+           else{
+            return false;
+           }
+          
+        })
+
+        
+    </script>
 </body>
 </html>
