@@ -1,0 +1,38 @@
+.flex-form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.flex-form .input-group, .flex-form .btn-group {
+	margin-block-end: 10px;
+}
+
+.flex-form .input-group-addon {
+	width: 1%!important;
+}
+
+.flex-form .form-group {
+	margin-bottom: 0px;
+}
+
+.flex-form label {
+	margin-bottom: 0px;
+}
+
+.flex-form input[type='checkbox'], .flex-form input[type='radio'] {
+	cursor: pointer;
+	transform: translateX(5px) scale(1.5, 1.5);
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.flex-form label {
+	cursor: pointer;
+}
+
+.flex-form legend {
+	font-size: 13px;
+	font-weight: 800;
+	margin-bottom: 5px;
+}

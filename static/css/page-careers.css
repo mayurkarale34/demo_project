@@ -1,0 +1,399 @@
+/*------------------------------------*\
+-------- Page Styles: Accordion
+\*------------------------------------*/
+
+.contact-form input::-webkit-outer-spin-button,
+.contact-form input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.main:before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    content: '';
+    background: -webkit-radial-gradient(30%, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0)), url('img/body-bg.png');
+    background: -moz-radial-gradient(30%, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0)), url('img/body-bg.png');
+    background: -o-radial-gradient(30%, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0)), url('img/body-bg.png');
+    background: radial-gradient(30%, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0)), url('img/body-bg.png');
+}
+.site-header-wrap {
+    margin-bottom: 60px;
+    border-bottom: 1px solid #cd9ad6;
+}
+/*------------------------------------*\
+-------- DEMO Code: accordion
+\*------------------------------------*/
+/*----- Accordion -----*/
+
+.accordion,
+.accordion * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.accordion {
+    overflow: hidden;
+}
+.table-footer {
+    background: rgb(226, 226, 226);
+    padding: 0px 0;
+    margin-bottom: 2em;
+    height: 4px;
+}
+.page-careers .job {
+    padding: .5em 0em;
+}
+.page-careers .job .visible-xs {
+    display: inline-block !important;
+}
+.accordion .accordion-section:nth-last-child(1) ul.job {
+    border-bottom: 0;
+}
+.accordion-section-title {
+    border-bottom: none;
+    color: #F68620;
+    text-decoration: none;
+}
+.accordion-section-title:before {
+    /* Type */
+    
+    content: "+";
+    cursor: pointer;
+}
+.accordion-section-title.active:before {
+    content: "-";
+    cursor: pointer;
+    color: #F68620;
+}
+.accordion-section-title.active:before .job {
+    border: none;
+}
+.accordion-section-title.active,
+.accordion-section-title:hover,
+.accordion-section-title:active,
+.accordion-section-title:visited,
+.accordion-section-title:focus {
+    text-decoration: none;
+    color: #F68620!important;
+}
+.accordion-section:last-child .accordion-section-title {
+    border-bottom: none;
+}
+/*----- Section Content -----*/
+
+.accordion-section-content {
+    padding: 15px 0 0 0;
+    display: none;
+}
+.page-careers .middle-block {
+    float: none;
+    margin: 0 auto;
+}
+.banner {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+.banner.arrer-banner {
+    margin-top: 60px;
+}
+.banner img {
+    width: 100%;
+}
+.banner-text {
+    position: absolute;
+    bottom: 5em;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-weight: 100;
+    z-index: 4;
+}
+.banner-text h1 {
+    font-size: 48px;
+}
+.banner-text p {
+    font-size: 18px;
+}
+.text-center {
+    text-align: center;
+}
+.page-careers li {
+    list-style: none;
+}
+.accordion-section> ul li {
+    float: left;
+}
+.accordion-section> ul li {
+    line-height: 25px;
+    vertical-align: middle;
+}
+.page-careers .job {
+    border-bottom: 1px solid #e3e3e3;
+    border-left: 0;
+    margin: 0;
+    border-right: 0;
+}
+.page-careers .job li h5 {
+    font-size: 11px;
+}
+.page-careers .job-details {
+    padding: 2em 0em;
+    overflow: hidden;
+}
+.page-careers .job-details p > label {
+    color: #333;
+}
+.page-careers .job:nth-child(1) {
+    border-left: 0;
+    border-right: 0;
+}
+.page-careers .active .job {
+    border: 1px solid #e3e3e3;
+    border-left: 0;
+    border-bottom: 0;
+    border-right: 0;
+}
+.page-careers .open {
+    border-bottom: 4px solid #e3e3e3;
+}
+.page-careers .contact-form {
+    margin: 2em 0;
+}
+.page-careers .contact-form li {
+    padding: 1em;
+}
+.page-careers .contact-form li input {
+    margin: 0 0 1em 0;
+    clear: both;
+    display: block;
+}
+.page-careers .submit {
+    display: block;
+    overflow: hidden;
+    width: auto !important;
+    background: #41bf41;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 1em 2em;
+    outline: 0;
+    border: 0;
+}
+.page-careers .wpcf7-validation-errors,
+.wpcf7-mail-sent-ok {
+    text-align: center;
+    font-weight: 600;
+}
+.page-careers .wpcf7-validation-errors {
+    color: red;
+}
+.page-careers .wpcf7-mail-sent-ok {
+    color: green;
+}
+.page-careers div.wpcf7-validation-errors,
+div.wpcf7-mail-sent-ok {
+    border: 0;
+}
+.page-careers .table-header {
+    margin: 1em 0 0 0;
+    padding: 6px 0px 2px;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 2px solid rgb(226, 226, 226);
+    font-size: 14px;
+    font-weight: 600;
+}
+.page-careers ul.table-header li,
+.accordion-section ul li {
+    padding: 0px;
+}
+.page-careers h3.new-style {
+    text-align: left;
+    font-size: 1.2em;
+    color: #F2871F;
+}
+/*material design form*/
+
+.page-careers .form-group {
+    position: relative;
+    margin-top: 2.25rem;
+    margin-bottom: 2.25rem;
+}
+.page-careers .form-group input {
+    height: 1.9rem;
+}
+.page-careers .form-group textarea {
+    resize: none;
+}
+.page-careers .form-group select {
+    width: 100%;
+    font-size: 1rem;
+    height: 1.6rem;
+    padding: 2px 2px 1px;
+    background: none;
+    border: none;
+    line-height: 1.6;
+    box-shadow: none;
+}
+.page-careers .form-group .control-label {
+    position: absolute;
+    top: 0px;
+    pointer-events: none;
+    padding-left: 2px;
+    z-index: 1;
+    color: #b3b3b3;
+    font-size: 1em;
+    font-weight: normal;
+    transition: all 0.28s ease;
+}
+.page-careers .form-group .bar {
+    position: relative;
+    border-bottom: 1px solid #999;
+    display: block;
+}
+.page-careers .form-group .bar:before,
+.form-group .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: -1px;
+    position: absolute;
+    background: #F68620;
+    transition: all 0.28s ease;
+    z-index: 2;
+}
+.page-careers .form-group .bar:before {
+    left: 50%;
+}
+.page-careers .form-group .bar:after {
+    right: 50%;
+}
+.page-careers .form-group input,
+.page-careers .form-group textarea {
+    display: block;
+    background: none;
+    padding: 2px 2px 1px;
+    font-size: 1rem;
+    border-width: 0;
+    border-color: transparent;
+    line-height: 1.9;
+    width: 100%;
+    color: transparent;
+    transition: all 0.28s ease;
+    box-shadow: none;
+}
+.page-careers .form-group input[type="file"] {
+    line-height: 1;
+}
+.page-careers .form-group input[type="file"] ~ .bar {
+    display: none;
+}
+.page-careers .form-group select,
+.page-careers .form-group input:focus,
+.page-careers .form-group input:valid,
+.page-careers .form-group input.form-file,
+.page-careers .form-group input.hasValue,
+.page-careers .form-group textarea:focus,
+.page-careers .form-group textarea:valid,
+.page-careers .form-group textarea.form-file,
+.page-careers .form-group textarea.hasValue {
+    color: #333;
+}
+.page-careers .form-group select ~ .control-label,
+.page-careers .form-group input:focus ~ .control-label,
+.page-careers .form-group input:valid ~ .control-label,
+.page-careers .form-group input.form-file ~ .control-label,
+.page-careers .form-group input.hasValue ~ .control-label,
+.page-careers .form-group textarea:focus ~ .control-label,
+.page-careers .form-group textarea:valid ~ .control-label,
+.page-careers .form-group textarea.form-file ~ .control-label,
+.page-careers .form-group textarea.hasValue ~ .control-label {
+    font-size: 0.8rem;
+    color: gray;
+    top: -1rem;
+    left: 0;
+}
+.page-careers .form-group select:focus,
+.page-careers .form-group input:focus,
+.page-careers .form-group textarea:focus {
+    outline: none;
+}
+.page-careers .form-group select:focus ~ .control-label,
+.page-careers .form-group input:focus ~ .control-label,
+.page-careers .form-group textarea:focus ~ .control-label {
+    color: #F68620;
+}
+.page-careers .form-group select:focus ~ .bar:before,
+.form-group select:focus ~ .bar:after,
+.page-careers .form-group input:focus ~ .bar:before,
+.page-careers .form-group input:focus ~ .bar:after,
+.page-careers .form-group textarea:focus ~ .bar:before,
+.page-careers .form-group textarea:focus ~ .bar:after {
+    width: 50%;
+}
+@media screen and (max-width: 480px) {
+    .banner-text {
+        bottom: 2em;
+    }
+    .banner-height {
+        height: 164px!important;
+    }
+    .carousel img {
+        margin-top: auto!important;
+    }
+    .banner-text h1 {
+        font-size: 24px;
+    }
+    .banner-text p {
+        font-size: 14px;
+    }
+    .carousel-control {
+        display: none!important;
+    }
+    .carousel-indicators {
+        bottom: 0;
+    }
+}
+.carousel-control {
+    z-index: 4!important;
+}
+.banner-height {
+    height: 460px;
+}
+.gradient {
+    opacity: 0.5;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* FF3.6+ */
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65)));
+    /* Chrome,Safari4+ */
+    
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* Chrome10+,Safari5.1+ */
+    
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* Opera 11.10+ */
+    
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* IE10+ */
+    
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* W3C */
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
+    /* IE6-9 */
+    
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}

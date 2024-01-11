@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap Registration Form</title>
     <!-- Include Bootstrap 3 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-    <!-- Include Select2 CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
-    <!-- Include jQuery (required for Select2) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-table.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/css/select2-bootstrap.css">
+    <link rel="stylesheet" href="/static/css/select2.min.css">
+    <link rel= "stylesheet" media="all" href= "{{ url_for('static',filename='css/bootstrap-datetimepicker.min.css') }}">
 
-    <!-- Include Bootstrap 3 JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-    <!-- Include Select2 JavaScript -->
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="/static/js/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="/static/js/tableExport.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap_table.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/daterangepicker.min.js"></script>
+    <script src="/static/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/static/js/select2.min.js"></script>
+
     <style>
         .background{
             background-image:url('background.jpg');
@@ -78,7 +82,30 @@
             </div>
            
         </form>
+
+        <div class="row">
+            <table id="table_users" class="table table-hover"
+                data-toggle="table"
+                data-search="true"
+                data-url="/retrive_users"
+
+                >
+            <thead>
+                <tr>
+                    <th data-field="id">Id</th>
+                    <th data-field="first_name">First Name</th>
+                    <th data-field="last_name">Last Name</th>
+                    <th data-field="city_name">City</th>
+                    <th data-field="blood_group">Blood Group</th>
+                </tr>
+            </thead>
+    
+            </table>
+    
+        </div>
     </div>
+
+    
 
     <script>
         $('.select2').select2();

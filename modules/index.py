@@ -18,3 +18,20 @@ def add_user():
 
     print("user added successfully")
     return redirect('/')
+
+@app.route('/retrive_users', methods = ['GET', 'POST'])
+def retrive_users():
+    response = {
+        "rows" : [],
+        "total" : 0
+    }
+    result = app._engine.connect().execute(text("select * from tb_user_details"))
+    if result.rowcount:
+        for row in result:
+            columns = result.keys()
+            row_dict = dict(zip(columns, row))
+            response['rows'].append(row_dict)
+
+        response['total'] = len(response['rows'])
+
+    return jsonify(response)

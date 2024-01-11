@@ -1,0 +1,55 @@
+a.tooltip22 {
+	outline:none; 
+	}
+
+a.tooltip22 strong {
+	line-height:30px;
+	}
+
+a.tooltip22:hover {
+	text-decoration:none;
+	}
+a.tooltip22 span { 
+	z-index:10;
+	display:none;
+	padding:5px 5px;
+	margin-top:-340px;
+	margin-left:15px;
+	width:200px;
+	font-family:Arial, Helvetica, sans-serif
+	font-size: 13px;
+	line-height:14px;
+	text-align: center;
+	}
+a.tooltip22:hover span{
+	display:inline;
+	position:absolute;
+	color:#111;
+	border:1px solid #DCA;
+	background:#fffAF0;
+	}
+.callout1 {
+	z-index:20;
+	position:absolute;
+	top:52px;
+	margin-left:95px;
+	border:0;
+	left:-12px;
+	}
+
+.callout2 {
+	z-index:20;
+	position:absolute;
+	top:66px;
+	margin-left:95px;
+	border:0;
+	left:-12px;
+	}
+
+/*CSS3 extras*/ 
+a.tooltip22 span {
+	border-radius:4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	}
+
