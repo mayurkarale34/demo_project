@@ -35,3 +35,15 @@ def retrive_users():
         response['total'] = len(response['rows'])
 
     return jsonify(response)
+
+@app.route('/delete_user', methods = ['POST'])
+def delete_user():
+    connection = app._engine.connect()
+    transaction = connection.begin()
+    data = dict(request.get_json())
+    id = data['user_id']
+    delete_query = text(f"delete from tb_user_details where id = '{id}'")
+    connection.execute(delete_query)
+    transaction.commit()
+    connection.close()
+    return jsonify("User deleted successfully...")

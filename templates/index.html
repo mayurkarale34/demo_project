@@ -30,6 +30,27 @@
         }
     </style>
 
+    <script>
+        function dataFormatter(value, row, index) {
+            return '<button class="btn btn-danger" onclick="deleteRow(' + row.id + ')">Delete</button>';
+        }
+
+        function deleteRow(userId) {
+            $.ajax({
+                type: "POST",
+                url: "/delete_user",
+                contentType: 'application/json; charset=utf-8', // Fix the typo here
+                dataType: 'json',
+                data: JSON.stringify({"user_id": userId}),
+                success: function (response) { 
+                    alert(response)
+                    $('#table_users').bootstrapTable('refresh');                       
+                        
+                }
+            });
+        }
+    </script>
+
 </head>
 <body class="background">
     <!-- Registration Form:
@@ -88,7 +109,6 @@
                 data-toggle="table"
                 data-search="true"
                 data-url="/retrive_users"
-
                 >
             <thead>
                 <tr>
@@ -97,6 +117,7 @@
                     <th data-field="last_name">Last Name</th>
                     <th data-field="city_name">City</th>
                     <th data-field="blood_group">Blood Group</th>
+                    <th data-formatter="dataFormatter">Delete</th>
                 </tr>
             </thead>
     
