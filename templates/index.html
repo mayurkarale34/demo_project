@@ -49,6 +49,11 @@
                 }
             });
         }
+
+        function queryParams(params){
+            params.city = $('#city_filter').val();
+            return params;
+        }
     </script>
 
 </head>
@@ -103,12 +108,24 @@
             </div>
            
         </form>
-
+        <br>
         <div class="row">
+            <div id="toolbar">
+                <select class="select2" name="city_filter" id="city_filter" style="width: 200px;">
+                    <option value="All">Please Select City</option>
+                    <option value="Mumbai" >Mumbai</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Nashik">Nashik</option>
+                    <option value="Satara">Satara</option>
+                </select>
+            </div>
             <table id="table_users" class="table table-hover"
                 data-toggle="table"
                 data-search="true"
                 data-url="/retrive_users"
+                data-query-params = "queryParams"
+                data-toolbar="#toolbar"
+
                 >
             <thead>
                 <tr>
@@ -187,7 +204,9 @@
           
         })
 
-        
+        $('#city_filter').change(function(){
+            $('#table_users').bootstrapTable('refresh');
+        })
     </script>
 </body>
 </html>

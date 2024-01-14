@@ -25,7 +25,9 @@ def retrive_users():
         "rows" : [],
         "total" : 0
     }
-    result = app._engine.connect().execute(text("select * from tb_user_details"))
+    city = request.args.get('city')
+    
+    result = app._engine.connect().execute(text(f"select * from tb_user_details where city_name = if('{city}' = 'All', city_name, '{city}')"))
     if result.rowcount:
         for row in result:
             columns = result.keys()
